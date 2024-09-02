@@ -43,7 +43,7 @@ class HomePage extends StatelessWidget {
                   ),
                 ),
               ),
-              Spacer(), // To push the content to the bottom
+              Spacer(), 
               Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: Column(
@@ -53,9 +53,9 @@ class HomePage extends StatelessWidget {
                     Text(
                       'Plan your luxurious vacation',
                       style: TextStyle(
-                        fontFamily: 'Georgia', // Change to your desired font
-                        fontSize: 28, // Increased font size
-                        fontWeight: FontWeight.normal, // Not bold
+                        fontFamily: 'Georgia', 
+                        fontSize: 28, 
+                        fontWeight: FontWeight.normal, 
                         color: Colors.white,
                         shadows: [
                           Shadow(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tripsphere/components/popular.dart';
+import 'package:tripsphere/components/recommended.dart'; 
 
 class ExplorePage extends StatefulWidget {
   const ExplorePage({super.key});
@@ -14,82 +15,86 @@ class _ExplorePageState extends State<ExplorePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(height: 30),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  'Explore',
-                  style: TextStyle(
-                    fontSize: 17,
-                    color: Colors.grey,
-                  ),
-                ),
-                Row(
-                  children: [
-                    Icon(
-                      Icons.location_on,
-                      color: Colors.blue,
-                      size: 14,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(height: 30),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'Explore',
+                    style: TextStyle(
+                      fontSize: 17,
+                      color: Colors.grey,
                     ),
-                    SizedBox(width: 8),
-                    Text(
-                      'Accra, Ghana',
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: Colors.black,
+                  ),
+                  Row(
+                    children: [
+                      Icon(
+                        Icons.location_on,
+                        color: Colors.blue,
+                        size: 14,
                       ),
-                    ),
-                    SizedBox(width: 8),
-                    Icon(
-                      Icons.arrow_drop_down_sharp,
-                      color: Colors.black,
-                      size: 20,
-                    ),
-                  ],
-                ),
-              ],
-            ),
-            // SizedBox(height: 20),
-            Text(
-              'TripShere',
-              style: TextStyle(
-                fontSize: 21,
-                fontWeight: FontWeight.bold,
-                color: Colors.black,
+                      SizedBox(width: 8),
+                      Text(
+                        'Accra, Ghana',
+                        style: TextStyle(
+                          fontSize: 16,
+                          color: Colors.black,
+                        ),
+                      ),
+                      SizedBox(width: 8),
+                      Icon(
+                        Icons.arrow_drop_down_sharp,
+                        color: Colors.blue,
+                        size: 23,
+                      ),
+                    ],
+                  ),
+                ],
               ),
-            ),
-            SizedBox(height: 20),
-            Container(
-              margin: const EdgeInsets.only(top: 10),
-              child: TextField(
-                decoration: InputDecoration(
-                  filled: true,
-                  fillColor: Color(0xFFF3F8FE),
-                  prefixIcon: Icon(Icons.search, color: Colors.grey),
-                  hintText: 'Find things to do...',
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(20),
-                    borderSide: BorderSide.none,
+              SizedBox(height: 20),
+              Text(
+                'TripShere',
+                style: TextStyle(
+                  fontSize: 21,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.blue,
+                ),
+              ),
+              SizedBox(height: 20),
+              Container(
+                margin: const EdgeInsets.only(top: 10),
+                child: TextField(
+                  decoration: InputDecoration(
+                    filled: true,
+                    fillColor: Color(0xFFF3F8FE),
+                    prefixIcon: Icon(Icons.search, color: Colors.grey),
+                    hintText: 'Find things to do...',
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(20),
+                      borderSide: BorderSide.none,
+                    ),
                   ),
                 ),
               ),
-            ),
-            SizedBox(height: 20),
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                children: _buildCategoryButtons(),
+              SizedBox(height: 20),
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: _buildCategoryButtons(),
+                ),
               ),
-            ),
-            SizedBox(height: 20),
-            Popular(), // Add the Popular component here
-          ],
+              SizedBox(height: 20),
+              Popular(),
+              SizedBox(height: 20),
+              Recommendation(), 
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: Container(
@@ -130,7 +135,7 @@ class _ExplorePageState extends State<ExplorePage> {
           ],
           currentIndex: 0,
           onTap: (index) {
-            
+            // Handle bottom navigation taps here
           },
         ),
       ),

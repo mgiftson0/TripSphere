@@ -13,52 +13,55 @@ class _PopularState extends State<Popular> {
 
   // Example images list
   final List<String> _images = [
+    'lib/images/pop3.png',
     'lib/images/pop.png',
-    'lib/images/pop1.png',
     'lib/images/pop.png',
-    'lib/images/pop1.png',
+    'lib/images/pop3.png',
   ];
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        // Header
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              'Popular',
-              style: TextStyle(
-                fontSize: 21,
-                fontWeight: FontWeight.bold,
-                color: Colors.black,
-              ),
-            ),
-            GestureDetector(
-              onTap: () {
-                setState(() {
-                  _showAll = !_showAll;
-                });
-              },
-              child: Text(
-                _showAll ? 'See Less' : 'See All',
+    return SingleChildScrollView(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          // Header
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'Popular',
                 style: TextStyle(
-                  fontSize: 16,
-                  color: Colors.blue,
+                  fontSize: 21,
+                  // fontWeight: FontWeight.bold,
+                  color: Colors.black,
                 ),
               ),
-            ),
-          ],
-        ),
-        SizedBox(height: 20),
-        // Images
-        Wrap(
-          spacing: 8,
-          children: _buildImages(),
-        ),
-      ],
+              GestureDetector(
+                onTap: () {
+                  setState(() {
+                    _showAll = !_showAll;
+                  });
+                },
+                child: Text(
+                  _showAll ? 'See Less' : 'See All',
+                  style: TextStyle(
+                    fontSize: 16,
+                    color: Colors.blue,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          SizedBox(height: 20),
+          // Images
+          Wrap(
+            spacing: 8, // Horizontal spacing between images
+            runSpacing: 8, // Vertical spacing between rows
+            children: _buildImages(),
+          ),
+        ],
+      ),
     );
   }
 
@@ -68,11 +71,20 @@ class _PopularState extends State<Popular> {
     final imagesToShow = _showAll ? _images : _images.take(2).toList();
 
     return imagesToShow.map((image) {
-      return Image.asset(
-        image,
-        width: (MediaQuery.of(context).size.width - 48) / 2, // Adjusting for spacing
-        fit: BoxFit.cover,
-      );
+      return image.contains('pop1.png')
+          ? Image.asset(
+              image,
+            
+
+              width: 200, 
+              height: 290,
+              fit: BoxFit.cover,
+            )
+          : Image.asset(
+              image,
+              width: (MediaQuery.of(context).size.width - 48) / 2, // Standard width for other images
+              fit: BoxFit.cover,
+            );
     }).toList();
   }
 }
