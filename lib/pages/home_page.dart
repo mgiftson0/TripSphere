@@ -23,7 +23,7 @@ class HomePage extends StatelessWidget {
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // Title at the top (not too close to the top)
+              
               Padding(
                 padding: const EdgeInsets.only(top: 40.0), 
                 child: Text(
@@ -70,7 +70,7 @@ class HomePage extends StatelessWidget {
                     SizedBox(height: 20),
                     // Explore button
                     SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.8, // Button width 80% of screen width
+                      width: MediaQuery.of(context).size.width * 0.8, 
                       child: ElevatedButton(
                         onPressed: () {
                           // Navigate to ExplorePage when button is pressed
@@ -80,13 +80,13 @@ class HomePage extends StatelessWidget {
                           );
                         },
                         style: ElevatedButton.styleFrom(
-                          primary: Colors.blue, // Button background color
+                          primary: Colors.blue, 
                           padding: EdgeInsets.symmetric(vertical: 15),
                           textStyle: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                         ),
                         child: Text(
                           'Explore',
-                          style: TextStyle(color: Colors.white), // Button text color
+                          style: TextStyle(color: Colors.white), 
                         ),
                       ),
                     ),

@@ -136,7 +136,7 @@ class _ExplorePageState extends State<ExplorePage> {
           ],
           currentIndex: 0,
           onTap: (index) {
-            // Handle bottom navigation taps here
+            // bottom navigation taps Logic here
           },
         ),
       ),

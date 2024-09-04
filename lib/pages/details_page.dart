@@ -25,7 +25,7 @@ class DetailsPage extends StatelessWidget {
             Stack(
               children: [
                 Container(
-                  height: 450,  // Increased height for the image
+                  height: 450,  
                   width: MediaQuery.of(context).size.width,
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.vertical(bottom: Radius.circular(20)),
@@ -76,7 +76,7 @@ class DetailsPage extends StatelessWidget {
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      // Handle show map action
+                      //  show map action Logic here
                     },
                     style: ElevatedButton.styleFrom(
                       primary: Colors.white,
@@ -107,7 +107,7 @@ class DetailsPage extends StatelessWidget {
               ),
             ),
             Container(
-              height: 100,  // Adjust height as needed
+              height: 100,  
               margin: EdgeInsets.symmetric(horizontal: 16),
               child: ListView(
                 scrollDirection: Axis.horizontal,
@@ -119,7 +119,7 @@ class DetailsPage extends StatelessWidget {
                   _facilityCard(Icons.games, 'Games'),
                   _facilityCard(Icons.hiking, 'Hiking'),
                   _facilityCard(Icons.directions_bike, 'Riding'),
-                  // _facilityCard(Icons.sports_skateboarding, 'Skating'),
+                  
                 ],
               ),
             ),
@@ -148,12 +148,12 @@ class DetailsPage extends StatelessWidget {
                   ),
                   ElevatedButton(
                     onPressed: () {
-                      // Handle booking action
+                      //  booking action Logic here
                     },
                     style: ElevatedButton.styleFrom(
                       primary: Color(0xFF196EEE),
-                      padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12), // Increased width
-                      elevation: 5, // Add box shadow
+                      padding: EdgeInsets.symmetric(horizontal: 24, vertical: 12), 
+                      elevation: 5, 
                     ),
                     child: Row(
                       children: [

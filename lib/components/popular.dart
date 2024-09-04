@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tripsphere/pages/details_page.dart'; // Import the details page
-
+import 'package:tripsphere/pages/details_page.dart'; 
 class Popular extends StatefulWidget {
   const Popular({super.key});
 
@@ -28,7 +27,7 @@ class _PopularState extends State<Popular> {
       'reviews': 150,
       'description': 'A serene environment perfect for relaxation and unwinding.',
     },
-    // Add more images and details as needed
+    
   ];
 
   @override
@@ -67,8 +66,8 @@ class _PopularState extends State<Popular> {
           SizedBox(height: 20),
           // Images
           Wrap(
-            spacing: 8, // Horizontal spacing between images
-            runSpacing: 8, // Vertical spacing between rows
+            spacing: 8, 
+            runSpacing: 8, 
             children: _buildImages(context),
           ),
         ],
@@ -106,7 +105,7 @@ class _PopularState extends State<Popular> {
               )
             : Image.asset(
                 imageData['image'],
-                width: (MediaQuery.of(context).size.width - 48) / 2, // Standard width for other images
+                width: (MediaQuery.of(context).size.width - 48) / 2, 
                 fit: BoxFit.cover,
               ),
       );
