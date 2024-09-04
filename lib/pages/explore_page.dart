@@ -115,6 +115,7 @@ class _ExplorePageState extends State<ExplorePage> {
         child: BottomNavigationBar(
           backgroundColor: Colors.transparent,
           elevation: 0,
+          type: BottomNavigationBarType.fixed,
           items: [
             BottomNavigationBarItem(
               icon: Icon(Icons.home, color: Colors.blue),

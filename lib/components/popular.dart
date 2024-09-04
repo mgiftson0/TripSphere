@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tripsphere/pages/details_page.dart'; // Import the details page
 
 class Popular extends StatefulWidget {
   const Popular({super.key});
@@ -12,11 +13,22 @@ class _PopularState extends State<Popular> {
   bool _showAll = false;
 
   // Example images list
-  final List<String> _images = [
-    'lib/images/pop3.png',
-    'lib/images/pop.png',
-    'lib/images/pop.png',
-    'lib/images/pop3.png',
+  final List<Map<String, dynamic>> _images = [
+    {
+      'image': 'lib/images/pop3.png',
+      'title': 'Beautiful Place 1',
+      'rating': 4.5,
+      'reviews': 299,
+      'description': 'This is a beautiful place to visit. Lots of scenic views and activities to enjoy.',
+    },
+    {
+      'image': 'lib/images/pop.png',
+      'title': 'Beautiful Place 2',
+      'rating': 4.7,
+      'reviews': 150,
+      'description': 'A serene environment perfect for relaxation and unwinding.',
+    },
+    // Add more images and details as needed
   ];
 
   @override
@@ -33,7 +45,6 @@ class _PopularState extends State<Popular> {
                 'Popular',
                 style: TextStyle(
                   fontSize: 21,
-                  // fontWeight: FontWeight.bold,
                   color: Colors.black,
                 ),
               ),
@@ -58,7 +69,7 @@ class _PopularState extends State<Popular> {
           Wrap(
             spacing: 8, // Horizontal spacing between images
             runSpacing: 8, // Vertical spacing between rows
-            children: _buildImages(),
+            children: _buildImages(context),
           ),
         ],
       ),
@@ -66,25 +77,39 @@ class _PopularState extends State<Popular> {
   }
 
   // Build the images widgets
-  List<Widget> _buildImages() {
+  List<Widget> _buildImages(BuildContext context) {
     // Show only two images initially, show all if _showAll is true
     final imagesToShow = _showAll ? _images : _images.take(2).toList();
 
-    return imagesToShow.map((image) {
-      return image.contains('pop1.png')
-          ? Image.asset(
-              image,
-            
-
-              width: 200, 
-              height: 290,
-              fit: BoxFit.cover,
-            )
-          : Image.asset(
-              image,
-              width: (MediaQuery.of(context).size.width - 48) / 2, // Standard width for other images
-              fit: BoxFit.cover,
-            );
+    return imagesToShow.map((imageData) {
+      return GestureDetector(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => DetailsPage(
+                image: imageData['image'],
+                title: imageData['title'],
+                rating: imageData['rating'],
+                reviews: imageData['reviews'],
+                description: imageData['description'],
+              ),
+            ),
+          );
+        },
+        child: imageData['image'].contains('pop1.png')
+            ? Image.asset(
+                imageData['image'],
+                width: 200,
+                height: 290,
+                fit: BoxFit.cover,
+              )
+            : Image.asset(
+                imageData['image'],
+                width: (MediaQuery.of(context).size.width - 48) / 2, // Standard width for other images
+                fit: BoxFit.cover,
+              ),
+      );
     }).toList();
   }
 }
